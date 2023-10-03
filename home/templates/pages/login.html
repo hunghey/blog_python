@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang = "en" >
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "with=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content = "ie=chrome">
+    <title>LOGIN</title> 
+   
+</head>
+<body>
+    <form method='POST'>
+        {% csrf_token %}
+        {% for key,value in form.errors.items %}
+            {{value}}
+        {% endfor %}
+        <p><label>Username : </label>{{form.username}}</p>
+        <p><label>Password : </label>{{form.password}}</p>
+        {% comment %} <input type = "hidden" name='home' value="/"/> {% endcomment %}
+        {% comment %} <input type = "submit" value = "Login"/> {% endcomment %}
+        <button type = "submit" ><a href="/"></a>Login</button>
+    </form>
+</body>
+</html>  
