@@ -3,10 +3,24 @@
 {% block title %} Blog {% endblock %}
 
 {% block content %}
-{% for post in Posts%}
-    <h4>{{post.date|date:"d-m-Y"}}<a href ="/blog/{{post.id}}">{{post.title}}</a></h4>
+<section class="hero">
+    <div class=hero-body>
+        <div class="container">
+            <section class = columns>
+                <div class="column is-8 is-offset-2">
+                    <div class="content is-medium">
+                        {% for post in Posts%}
+    <h1 font-size = "100%"><a href ="/blog/{{post.id}}">{{post.title}}</a></h1>
+    <h4> {{post.date|date:"d-m-Y"}}</h4>
     {% if post.image %}
         <img src="{{ post.image.url }} "  width="500px" height = "300px">
     {% endif %}
 {% endfor %}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>    
+</section> 
+
 {% endblock %}

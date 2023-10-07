@@ -1,9 +1,11 @@
 {% extends "pages/base.html" %}
 
 {% block title %} Home {% endblock %}
-
+<ul>
 {% block content %}
-<p> Ten: Hung</p>
-<p> Nam: 2002</p>
-<p> hcmue</p>
+    {% for post in object_list %}
+        <li><a href="{%url 'articledetails' post.pk %}"> {{post.title}} </a> - {{post.author}} <br/>
+        {{post.body}} </li>
+    {% endfor %}
 {% endblock %}
+</ul>

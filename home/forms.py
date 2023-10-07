@@ -1,7 +1,12 @@
 from django import forms
+from django.forms import ModelForm
 import re
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import  ObjectDoesNotExist
+from django.shortcuts import  render
+
+
 
 class RegistrationForm(forms.Form):
     username = forms.CharField(label='Username', max_length=30)
@@ -28,4 +33,3 @@ class RegistrationForm(forms.Form):
         raise forms.ValidationError("This username is already in use.")
     def save(self):
         User.objects.create_user(username=self.cleaned_data['username'], email = self.cleaned_data['email'], password=self.cleaned_data['password1'])
-        
